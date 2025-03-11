@@ -1,0 +1,13 @@
+<div class="canvas-container">
+  <canvas #canvas></canvas>
+  
+  <div class="canvas-controls">
+    <button mat-fab color="primary" (click)="addElement('player', {x: 100, y: 100})">
+      <mat-icon>person_add</mat-icon>
+    </button>
+    
+    <button mat-fab color="accent" (click)="addElement('ball', {x: 200, y: 200})">
+      <mat-icon>sports_soccer</mat-icon>
+    </button>
+  </div>
+</div>

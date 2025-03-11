@@ -1,0 +1,62 @@
+<div class="app-container">
+  <mat-toolbar color="primary">
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Tactic Board</span>
+    <span class="spacer"></span>
+    <button mat-icon-button [matMenuTriggerFor]="userMenu" aria-label="User menu">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #userMenu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>person</mat-icon>
+        <span>Profilo</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>settings</mat-icon>
+        <span>Impostazioni</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar>
+
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav mode="side" [opened]="true">
+      <div class="sidenav-header">
+        <img src="assets/logo.png" alt="Logo" class="logo">
+      </div>
+      <mat-nav-list>
+        <a mat-list-item routerLink="/dashboard" routerLinkActive="active-link">
+          <mat-icon>dashboard</mat-icon>
+          <span>Dashboard</span>
+        </a>
+        <a mat-list-item routerLink="/editor" routerLinkActive="active-link">
+          <mat-icon>edit</mat-icon>
+          <span>Editor Tattico</span>
+        </a>
+        <a mat-list-item routerLink="/exercises" routerLinkActive="active-link">
+          <mat-icon>library_books</mat-icon>
+          <span>Libreria Esercizi</span>
+        </a>
+        <a mat-list-item routerLink="/planner" routerLinkActive="active-link">
+          <mat-icon>event</mat-icon>
+          <span>Pianificatore</span>
+        </a>
+        <a mat-list-item routerLink="/analysis" routerLinkActive="active-link">
+          <mat-icon>analytics</mat-icon>
+          <span>Analisi</span>
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+    
+    <mat-sidenav-content>
+      <div class="content">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
