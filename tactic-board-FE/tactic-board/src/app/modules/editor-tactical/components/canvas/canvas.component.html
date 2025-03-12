@@ -1,13 +1,34 @@
+<!-- src/app/modules/editor-tactical/components/canvas/canvas.component.html -->
 <div class="canvas-container">
-  <canvas #canvas></canvas>
-  
-  <div class="canvas-controls">
-    <button mat-fab color="primary" (click)="addElement('player', {x: 100, y: 100})">
-      <mat-icon>person_add</mat-icon>
+  <div class="canvas-toolbar">
+    <button mat-raised-button color="primary" (click)="saveCanvas()">
+      <mat-icon>save</mat-icon> Salva
     </button>
-    
-    <button mat-fab color="accent" (click)="addElement('ball', {x: 200, y: 200})">
-      <mat-icon>sports_soccer</mat-icon>
+    <button mat-raised-button color="accent" (click)="exportCanvas()">
+      <mat-icon>download</mat-icon> Esporta
+    </button>
+    <button mat-raised-button color="warn" (click)="clearCanvas()">
+      <mat-icon>clear</mat-icon> Pulisci
+    </button>
+
+    <span class="spacer"></span>
+
+    <button mat-raised-button color="warn" (click)="deleteSelectedElement()">
+      <mat-icon>delete</mat-icon> Elimina Selezionato
     </button>
   </div>
+
+  <div class="canvas-wrapper">
+    <canvas #canvas></canvas>
+    <div class="canvas-info" *ngIf="selectedElementType">
+      <p>Elemento selezionato: {{ selectedElementType }}. Clicca sul campo per posizionarlo.</p>
+    </div>
+  </div>
+
+  <div class="timeline-container">
+    <app-timeline></app-timeline>
+    <app-playback-controls></app-playback-controls>
+  </div>
 </div>
+
+<!-- src/app/modules/editor-tactical/components/canvas/canvas.component.scss -->

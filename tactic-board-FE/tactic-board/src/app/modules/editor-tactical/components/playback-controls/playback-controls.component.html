@@ -1,1 +1,34 @@
-<p>playback-controls works!</p>
+<!-- src/app/modules/editor-tactical/components/playback-controls/playback-controls.component.html -->
+<div class="playback-controls">
+  <div class="time-display">
+    <span>{{ formatTime(currentTime) }}</span>
+    <span class="time-separator">/</span>
+    <span>{{ formatTime(totalDuration) }}</span>
+  </div>
+
+  <div class="control-buttons">
+    <button mat-icon-button color="primary" (click)="stop()" [disabled]="!currentAnimationId">
+      <mat-icon>stop</mat-icon>
+    </button>
+
+    <ng-container *ngIf="!isPlaying; else pauseButton">
+      <button mat-fab color="primary" (click)="play()" [disabled]="!currentAnimationId">
+        <mat-icon>play_arrow</mat-icon>
+      </button>
+    </ng-container>
+
+    <ng-template #pauseButton>
+      <button mat-fab color="accent" (click)="pause()">
+        <mat-icon>pause</mat-icon>
+      </button>
+    </ng-template>
+  </div>
+
+  <div class="progress-bar">
+    <div class="progress-track">
+      <div class="progress-fill" [style.width.%]="progressPercentage"></div>
+    </div>
+  </div>
+</div>
+
+<!-- src/app/modules/editor-tactical/components/playback-controls/playback-controls.component.scss -->

@@ -1,0 +1,49 @@
+/* src/app/modules/editor-tactical/components/playback-controls/playback-controls.component.scss */
+.playback-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  border-top: 1px solid #e0e0e0;
+  background-color: #f9f9f9;
+}
+
+.time-display {
+  font-family: monospace;
+  font-size: 14px;
+  color: #333;
+  min-width: 100px;
+
+  .time-separator {
+    margin: 0 4px;
+    color: #999;
+  }
+}
+
+.control-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.progress-bar {
+  flex: 1;
+  margin: 0 16px;
+
+  .progress-track {
+    height: 4px;
+    background-color: #e0e0e0;
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+
+    .progress-fill {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      background-color: #3f51b5;
+      transition: width 0.1s linear;
+    }
+  }
+}

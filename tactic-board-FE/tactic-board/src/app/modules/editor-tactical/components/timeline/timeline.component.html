@@ -1,1 +1,62 @@
-<p>timeline works!</p>
+<!-- src/app/modules/editor-tactical/components/timeline/timeline.component.html -->
+<div class="timeline-wrapper">
+  <div class="timeline-header">
+    <h3>Timeline Animazioni</h3>
+    <div class="animation-controls">
+      <mat-form-field appearance="outline" class="animation-selector">
+        <mat-label>Animazione</mat-label>
+        <mat-select [(value)]="selectedAnimationId" (selectionChange)="selectAnimation($event.value)">
+          <mat-option *ngFor="let animation of animations$ | async" [value]="animation.id">
+            {{ animation.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <button mat-mini-fab color="primary" matTooltip="Nuova animazione" (click)="createAnimation()">
+        <mat-icon>add</mat-icon>
+      </button>
+
+      <button mat-mini-fab color="warn" matTooltip="Elimina animazione"
+              [disabled]="!selectedAnimationId"
+              (click)="deleteAnimation()">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="timeline-track" *ngIf="selectedAnimationId">
+    <div class="time-markers">
+      <div class="time-marker" *ngFor="let i of [0, 1, 2, 3, 4, 5]">
+        <div class="marker-line"></div>
+        <div class="marker-label">{{ formatTime(i * 1000) }}</div>
+      </div>
+    </div>
+
+    <div class="timeline-slider">
+      <!-- Sostituisci la linea 40-41 con questo -->
+      <mat-slider
+        min="0"
+        [max]="totalDuration"
+        step="100"
+        [value]="selectedTime"
+        (input)="setTime($event)">
+      </mat-slider>
+    </div>
+
+    <div class="timeline-keyframes">
+      <!-- Qui visualizzeremmo i keyframe delle animazioni -->
+      <div class="no-keyframes" *ngIf="(currentAnimation$ | async)?.frames.length === 0">
+        Nessun keyframe presente. Aggiungi keyframe per creare l'animazione.
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline-empty" *ngIf="!selectedAnimationId">
+    <p>Nessuna animazione selezionata. Crea una nuova animazione per iniziare.</p>
+    <button mat-raised-button color="primary" (click)="createAnimation()">
+      <mat-icon>add</mat-icon> Nuova Animazione
+    </button>
+  </div>
+</div>
+
+<!-- src/app/modules/editor-tactical/components/timeline/timeline.component.scss -->

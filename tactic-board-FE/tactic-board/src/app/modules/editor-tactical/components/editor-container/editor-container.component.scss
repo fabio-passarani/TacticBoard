@@ -1,0 +1,37 @@
+/* src/app/modules/editor-tactical/components/editor-container/editor-container.component.scss */
+.editor-main-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.editor-content {
+  flex: 1;
+  overflow: hidden;
+}
+
+mat-sidenav-container {
+  height: 100%;
+}
+
+.editor-sidebar {
+  width: 280px;
+  border-right: 1px solid #e0e0e0;
+}
+
+.editor-main {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+:host ::ng-deep .editor-container-host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}

@@ -1,11 +1,12 @@
+// src/app/modules/editor-tactical/editor-tactical-routing.module.ts
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CanvasComponent } from './components/canvas/canvas.component';
+import { EditorContainerComponent } from './components/editor-container/editor-container.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: CanvasComponent
+    component: EditorContainerComponent
   }
 ];
 

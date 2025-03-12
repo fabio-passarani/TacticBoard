@@ -1,0 +1,28 @@
+<!-- src/app/modules/editor-tactical/components/editor-container/editor-container.component.html -->
+<div class="editor-main-container">
+  <mat-toolbar color="primary">
+    <span>Editor Tattico</span>
+    <span class="spacer"></span>
+    <button mat-icon-button matTooltip="Salva schema">
+      <mat-icon>save</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="Esporta immagine">
+      <mat-icon>file_download</mat-icon>
+    </button>
+    <button mat-icon-button matTooltip="Impostazioni">
+      <mat-icon>settings</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <div class="editor-content">
+    <mat-sidenav-container>
+      <mat-sidenav mode="side" opened class="editor-sidebar">
+        <app-element-library (elementSelected)="onElementSelected($event)"></app-element-library>
+      </mat-sidenav>
+
+      <mat-sidenav-content class="editor-main">
+        <app-canvas [selectedElementType]="selectedElementType"></app-canvas>
+      </mat-sidenav-content>
+    </mat-sidenav-container>
+  </div>
+</div>

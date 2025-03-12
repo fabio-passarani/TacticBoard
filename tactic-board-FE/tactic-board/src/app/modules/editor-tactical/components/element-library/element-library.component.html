@@ -1,1 +1,36 @@
-<p>element-library works!</p>
+<!-- src/app/modules/editor-tactical/components/element-library/element-library.component.html -->
+<div class="element-library">
+  <h3>Libreria Elementi</h3>
+
+  <mat-accordion>
+    <mat-expansion-panel *ngFor="let category of categories" [expanded]="category.name === 'Giocatori'">
+      <mat-expansion-panel-header>
+        <mat-panel-title>{{ category.name }}</mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <div class="element-grid">
+        <mat-card class="element-card" *ngFor="let element of getElementsByCategory(category.name)"
+                (click)="selectElement(element.type)">
+          <mat-card-content class="element-content">
+            <mat-icon class="element-icon">{{ element.icon }}</mat-icon>
+            <div class="element-name">{{ element.name }}</div>
+          </mat-card-content>
+          <mat-card-footer>
+            <mat-tooltip position="above">{{ element.description }}</mat-tooltip>
+          </mat-card-footer>
+        </mat-card>
+      </div>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+  <mat-divider class="element-divider"></mat-divider>
+
+  <div class="element-actions">
+    <h4>Proprietà Elemento</h4>
+    <p class="no-selection">Seleziona un elemento sul campo per modificarne le proprietà</p>
+
+    <!-- I controlli delle proprietà appariranno qui quando un elemento è selezionato -->
+  </div>
+</div>
+
+<!-- src/app/modules/editor-tactical/components/element-library/element-library.component.scss -->
