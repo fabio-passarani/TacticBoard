@@ -1,19 +1,15 @@
 package com.tacticboard.persistence.service.impl;
 
 import com.tacticboard.core.exception.ResourceNotFoundException;
-import com.tacticboard.core.model.entity.tactic.Tactic;
-import com.tacticboard.core.model.entity.tactic.TacticElement;
-import com.tacticboard.core.model.entity.tactic.TacticVersion;
+import com.tacticboard.core.model.Animation;
+import com.tacticboard.core.model.Tactic;
 import com.tacticboard.core.service.TacticService;
-import com.tacticboard.persistence.repository.TacticElementRepository;
+import com.tacticboard.persistence.repository.AnimationRepository;
 import com.tacticboard.persistence.repository.TacticRepository;
-import com.tacticboard.persistence.repository.TacticVersionRepository;
-import com.tacticboard.persistence.repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Training Schedule</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #2196f3;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 5px 5px 0 0;
+        }
+        .content {
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-top: none;
+            border-radius: 0 0 5px 5px;
+        }
+        .button {
+            display: inline-block;
+            background-color: #2196f3;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .week-info {
+            background-color: #e3f2fd;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Weekly Training Schedule</h1>
+    </div>
+    <div class="content">
+        <p>Hello <span th:text="${coachName}">Coach</span>,</p>
+        
+        <p>Here is your weekly training schedule for <strong th:text="${teamName}">Team Name</strong>.</p>
+        
+        <div class="week-info">
+            <h3>Week: <span th:text="${weekStart}">01 Jan 2023</span> to <span th:text="${weekEnd}">07 Jan 2023</span></h3>
+            <p>Total training sessions: <strong th:text="${trainingCount}">3</strong></p>
+        </div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Title</th>
+                    <th>Time</th>
+                    <th>Duration</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="training : ${trainings}">
+                    <td th:text="${training.date}">01 Jan 2023</td>
+                    <td th:text="${training.title}">Technical Training</td>
+                    <td th:text="${training.startTime != null ? training.startTime : 'Not specified'}">18:00</td>
+                    <td th:text="${training.duration + ' min'}">90 min</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <p>To view detailed training plans or make changes, click the button below:</p>
+        
+        <a href="https://tacticboard.com/training-plans" class="button">Manage Training Plans</a>
+        
+        <p>Best regards,<br>The TacticBoard Team</p>
+    </div>
+    <div class="footer">
+        <p>© 2023 TacticBoard. All rights reserved.</p>
+        <p>You are receiving this email because you are registered as a coach in TacticBoard.</p>
+    </div>
+</body>
+</html>

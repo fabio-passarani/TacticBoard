@@ -1,7 +1,8 @@
 package com.tacticboard.persistence.service.impl;
 
 import com.tacticboard.core.exception.ResourceNotFoundException;
-import com.tacticboard.core.model.entity.audit.AuditLog;
+import com.tacticboard.core.model.AuditLog;
+import com.tacticboard.core.model.User;
 import com.tacticboard.core.service.AuditService;
 import com.tacticboard.persistence.repository.AuditLogRepository;
 import com.tacticboard.persistence.repository.UserRepository;
