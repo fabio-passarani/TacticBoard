@@ -1,8 +1,15 @@
-import { FabricObject } from 'fabric';
+import { fabric } from 'fabric';
 
-// Estendi FabricObject per includere la proprietà 'data'
 declare module 'fabric' {
-  interface FabricObject {
+  interface Object {
+    data?: {
+      id: string;
+      type: string;
+      [key: string]: any;
+    };
+  }
+
+  interface IObjectOptions {
     data?: {
       id: string;
       type: string;

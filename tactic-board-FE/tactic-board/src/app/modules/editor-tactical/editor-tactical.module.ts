@@ -1,5 +1,5 @@
 // src/app/modules/editor-tactical/editor-tactical.module.ts
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -65,6 +65,7 @@ import { EditorEffects } from './store/editor.effects';
     // NgRx
     StoreModule.forFeature(fromEditor.editorFeatureKey, fromEditor.reducer),
     EffectsModule.forFeature([EditorEffects])
-  ]
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class EditorTacticalModule { }

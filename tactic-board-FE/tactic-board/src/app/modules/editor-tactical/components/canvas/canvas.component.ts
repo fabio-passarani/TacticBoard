@@ -1,14 +1,14 @@
 // src/app/modules/editor-tactical/components/canvas/canvas.component.ts
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, OnDestroy, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
-import * as fabric from 'fabric';
+import { fabric } from 'fabric';
 import { Subscription } from 'rxjs';
 import { take } from 'rxjs/operators';
 import * as EditorActions from '../../store/editor.actions';
 import * as EditorSelectors from '../../store/editor.selectors';
 import { TacticElement, ElementType } from '../../models/tactic-element.model';
 import { v4 as uuidv4 } from 'uuid';
-import '../models/fabric-extensions';
+import '../../models/fabric-extensions';
 
 @Component({
   selector: 'app-canvas',
@@ -534,7 +534,7 @@ export class CanvasComponent implements OnInit, AfterViewInit, OnDestroy {
       if (color === '#0000ff') team = 'away';
 
       return {
-        number: parseInt(number) || 0,
+        number: typeof number === 'string' ? parseInt(number) : 0,
         team,
         color
       };

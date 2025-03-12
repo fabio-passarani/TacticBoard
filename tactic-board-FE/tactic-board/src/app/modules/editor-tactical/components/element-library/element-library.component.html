@@ -16,7 +16,12 @@
             <div class="element-name">{{ element.name }}</div>
           </mat-card-content>
           <mat-card-footer>
-            <mat-tooltip position="above">{{ element.description }}</mat-tooltip>
+            <!-- Da
+            <mat-tooltip position="above">{{ element.description }}</mat-tooltip>-->
+
+            <div [matTooltip]="element.description" matTooltipPosition="above">
+              {{ element.description }}
+            </div>
           </mat-card-footer>
         </mat-card>
       </div>

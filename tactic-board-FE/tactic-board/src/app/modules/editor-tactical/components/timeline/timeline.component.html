@@ -35,17 +35,25 @@
     <div class="timeline-slider">
       <!-- Sostituisci la linea 40-41 con questo -->
       <mat-slider
+      [displayWith]="formatSliderTime"
+      min="0"
+      [max]="totalDuration"
+      [step]="100">
+      <input matSliderThumb [(ngModel)]="selectedTime" (valueChange)="setTime($event)">
+      </mat-slider>
+      <!--
+      <mat-slider
         min="0"
         [max]="totalDuration"
         step="100"
         [value]="selectedTime"
         (input)="setTime($event)">
-      </mat-slider>
+      </mat-slider>-->
     </div>
 
     <div class="timeline-keyframes">
       <!-- Qui visualizzeremmo i keyframe delle animazioni -->
-      <div class="no-keyframes" *ngIf="(currentAnimation$ | async)?.frames.length === 0">
+      <div class="no-keyframes" *ngIf="(currentAnimation$ | async)?.frames?.length === 0">
         Nessun keyframe presente. Aggiungi keyframe per creare l'animazione.
       </div>
     </div>

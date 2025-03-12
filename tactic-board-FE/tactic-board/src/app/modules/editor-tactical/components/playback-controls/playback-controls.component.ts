@@ -5,6 +5,7 @@ import { Subscription, interval } from 'rxjs';
 import { takeWhile } from 'rxjs/operators';
 import * as EditorSelectors from '../../store/editor.selectors';
 import * as EditorActions from '../../store/editor.actions';
+import { Animation, AnimationFrame } from '../../models/animation.model';
 
 @Component({
   selector: 'app-playback-controls',

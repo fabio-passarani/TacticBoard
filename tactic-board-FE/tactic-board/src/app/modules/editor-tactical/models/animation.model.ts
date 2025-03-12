@@ -2,7 +2,7 @@
 export interface Animation {
   id: string;
   name: string;
-  duration: number; // in milliseconds
+  duration: number;
   frames: AnimationFrame[];
 }
 

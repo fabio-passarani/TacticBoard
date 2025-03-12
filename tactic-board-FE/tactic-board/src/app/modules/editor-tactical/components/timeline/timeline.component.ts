@@ -13,6 +13,7 @@ import { v4 as uuidv4 } from 'uuid';
   styleUrls: ['./timeline.component.scss']
 })
 export class TimelineComponent implements OnInit, OnDestroy {
+  // Make sure we're explicitly typing these observables
   currentTactic$ = this.store.select(EditorSelectors.selectCurrentTactic);
   animations$ = this.store.select(EditorSelectors.selectTacticAnimations);
   currentAnimation$ = this.store.select(EditorSelectors.selectCurrentAnimation);
@@ -124,6 +125,10 @@ export class TimelineComponent implements OnInit, OnDestroy {
     }
     let time = this.selectedTime;
     this.store.dispatch(EditorActions.setAnimationTime({ time }));
+  }
+
+  formatSliderTime(value: number): string {
+    return this.formatTime(value);
   }
 
   // Formatta il tempo in mm:ss.ms
